@@ -1,11 +1,5 @@
-* {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: none;
-  font-style: normal;
-}
 body {
-  background-color: beige;
+  background-color: blanchedalmond;
 }
 header {
   position: fixed;
@@ -15,7 +9,7 @@ header {
   z-index: 99;
   background-color: black;
 }
-nav {
+.nav {
   max-width: 1200px;
   margin: auto;
   width: 100%;
@@ -25,27 +19,94 @@ nav {
   align-items: center;
 }
 .logo {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;
-  color: beige;
+  color: blanchedalmond;
 }
 .box {
-  color: beige;
+  color: blanchedalmond;
   width: 30px;
   height: 30px;
   text-align: center;
-  background-color: black;
   position: relative;
 }
 .cart-count {
   position: absolute;
+  background-color: black;
+  top: -6px;
+  padding: 3px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  z-index: 99;
 }
-#cart-icon {
-  position: absolute;
+.cart-icon {
   font-size: 1.5rem;
   cursor: pointer;
   padding-top: 10px;
-  text-align: right;
+}
+img {
+  float: left;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.container {
+  max-width: 1200px;
+  padding: 4rem;
+  margin: auto;
+  width: 100%;
+}
+.shop-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+  gap: 2rem;
+  justify-content: center;
+  align-content: center;
+}
+h2.title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.food-box {
+  background-color: black;
+  padding: 10px;
+  box-shadow: 0 1px 4px black;
+  border-radius: 3px;
+  color: blanchedalmond;
+}
+.food-title {
+  color: blanchedalmond;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.food-price {
+  color: beige;
+  font-size: 0.8rem;
+  font-weight: 100;
+}
+.pic {
+  overflow: hidden;
+}
+.pic:hover img {
+  transform: scale(1.5);
+}
+.food-image {
+  transition: 0.5s;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+.add-cart {
+  font-size: 0.8rem;
+  bottom: 0;
+  right: 0;
+  /* background-color: black; */
+  /* color: blanchedalmond; */
 }
