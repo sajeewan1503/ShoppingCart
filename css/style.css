@@ -109,4 +109,52 @@ h2.title {
   right: 0;
   /* background-color: black; */
   /* color: blanchedalmond; */
+  cursor: pointer;
+}
+/* .add-cart:hover {
+  background-color: brown;
+} */
+.cart {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 180px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: black;
+  box-shadow: 0 1px 4px beige;
+  z-index: 100;
+  /* line-height: 20px; */
+  /* text-align: center; */
+}
+.cart-active {
+  right: 0;
+  transition: 0.5s;
+}
+.cart-box {
+  color: blanchedalmond;
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  font-size: 10px;
+}
+/* input[name="trash"] {
+  color: blanchedalmond;
+} */
+.cart-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: blanchedalmond;
+}
+.cart-image {
+  width: 50px;
+  height: 50px;
+}
+.cart-quantity {
+  width: 90px;
+  height: 5px;
 }
