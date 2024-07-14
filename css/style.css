@@ -139,6 +139,10 @@ h2.title {
   grid-template-columns: 32% 50% 18%;
   align-items: center;
   font-size: 10px;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  border-bottom: 1px solid blanchedalmond;
+  padding-bottom: 10px;
 }
 /* input[name="trash"] {
   color: blanchedalmond;
@@ -149,12 +153,73 @@ h2.title {
   font-weight: 300;
   margin-bottom: 1rem;
   color: blanchedalmond;
+  padding-bottom: 10px;
+  border-bottom: 1px solid blanchedalmond;
 }
 .cart-image {
   width: 50px;
   height: 50px;
+  object-fit: cover;
+  border: 2px solid blanchedalmond;
 }
 .cart-quantity {
-  width: 90px;
-  height: 5px;
+  width: 2rem;
+  height: 0.5rem;
+  border: 1px solid blanchedalmond;
+  outline: none;
+  text-align: center;
+  font-size: 0.7rem;
+}
+.detail-box {
+  display: grid;
+  row-gap: 0.5rem;
+}
+.price-box {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-food-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: brown;
+  font-weight: 500;
+}
+.cart-price {
+  font-weight: 500;
+}
+.cart-remove {
+  font-size: 15px;
+  color: red;
+  cursor: pointer;
+}
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  color: blanchedalmond;
+}
+.total-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.total-prices {
+  margin-left: 0.5rem;
+}
+.btn-buy {
+  padding: 5px 5px;
+  background-color: green;
+  color: black;
+  border: solid;
+  font-size: 0.7rem;
+  /* font-weight: 500; */
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+}
+#cart-close {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  font-size: 1rem;
+  color: red;
+  cursor: pointer;
 }
