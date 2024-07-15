@@ -33,12 +33,17 @@ function loadContent() {
   cartBtns.forEach((btn) => {
     btn.addEventListener("click", addCart);
   });
+
+  updateTotal();
 }
 
 //Remove Item
 function removeItem() {
-  if (confirm("Are you sure to remove")) {
+  if (confirm("Are Your Sure to Remove")) {
+    let title = this.parentElement.querySelector(".cart-food-title").innerHTML;
+    itemList = itemList.filter((el) => el.title != title);
     this.parentElement.remove();
+    loadContent();
   }
 }
 
@@ -49,6 +54,9 @@ function changeQty() {
   }
   loadContent();
 }
+
+let itemList = [];
+
 //Add Cart
 function addCart() {
   let food = this.parentElement;
@@ -56,11 +64,27 @@ function addCart() {
   let price = food.querySelector(".food-price").innerHTML;
   let imgSrc = food.querySelector(".food-image").src;
   // console.log(title, price, imgSrc);
+
+  let newProduct = {
+    title,
+    price,
+    imgSrc,
+  };
+
+  //Check Product Already Exist in Cart
+  if (itemList.find((el) => el.title == newProduct.title)) {
+    alert("Product Already added in Cart");
+    return;
+  } else {
+    itemList.push(newProduct);
+  }
+
   let newProductElement = createCartProduct(title, price, imgSrc);
   let element = document.createElement("div");
   element.innerHTML = newProductElement;
   let cartBasket = document.querySelector(".cart-content");
   cartBasket.append(element);
+  loadContent();
 }
 //Add Cart Displaying in the cart box
 function createCartProduct(title, price, imgSrc) {
@@ -78,4 +102,34 @@ function createCartProduct(title, price, imgSrc) {
   <ion-icon name="trash" class="cart-remove"></ion-icon>
 </div>
   `;
+}
+
+//Total Price Calculation
+function updateTotal() {
+  const cartItems = document.querySelectorAll(".cart-box");
+  const totalValue = document.querySelector(".total-price");
+
+  let total = 0;
+
+  cartItems.forEach((product) => {
+    let priceElement = product.querySelector(".cart-price");
+    let price = parseFloat(priceElement.innerHTML.replace("Rs.", ""));
+    let qty = product.querySelector(".cart-quantity").value;
+    total += price * qty;
+    product.querySelector(".cart-amt").innerText = "Rs." + price * qty;
+  });
+
+  totalValue.innerHTML = "Rs." + total;
+
+  // Add Product Count in Cart Icon
+
+  const cartCount = document.querySelector(".cart-count");
+  let count = itemList.length;
+  cartCount.innerHTML = count;
+
+  if (count == 0) {
+    cartCount.style.display = "none";
+  } else {
+    cartCount.style.display = "block";
+  }
 }
