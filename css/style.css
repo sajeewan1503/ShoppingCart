@@ -118,7 +118,7 @@ h2.title {
   position: absolute;
   top: 0;
   right: -100%;
-  width: 180px;
+  width: 270px;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -156,11 +156,16 @@ h2.title {
   padding-bottom: 10px;
   border-bottom: 1px solid blanchedalmond;
 }
-.cart-image {
-  width: 50px;
+.cart-img {
+  /* width: 50px;
   height: 50px;
   object-fit: cover;
-  border: 2px solid blanchedalmond;
+  border: 2px solid blanchedalmond; */
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
 }
 .cart-quantity {
   width: 2rem;

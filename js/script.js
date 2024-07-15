@@ -27,6 +27,12 @@ function loadContent() {
   qtyElements.forEach((input) => {
     input.addEventListener("change", changeQty);
   });
+
+  //Add Product to Cart
+  let cartBtns = document.querySelectorAll(".add-cart");
+  cartBtns.forEach((btn) => {
+    btn.addEventListener("click", addCart);
+  });
 }
 
 //Remove Item
@@ -42,4 +48,34 @@ function changeQty() {
     this.value = 1;
   }
   loadContent();
+}
+//Add Cart
+function addCart() {
+  let food = this.parentElement;
+  let title = food.querySelector(".food-title").innerHTML;
+  let price = food.querySelector(".food-price").innerHTML;
+  let imgSrc = food.querySelector(".food-image").src;
+  // console.log(title, price, imgSrc);
+  let newProductElement = createCartProduct(title, price, imgSrc);
+  let element = document.createElement("div");
+  element.innerHTML = newProductElement;
+  let cartBasket = document.querySelector(".cart-content");
+  cartBasket.append(element);
+}
+//Add Cart Displaying in the cart box
+function createCartProduct(title, price, imgSrc) {
+  return `
+  <div class="cart-box">
+  <img src="${imgSrc}" class="cart-img">
+  <div class="detail-box">
+    <div class="cart-food-title">${title}</div>
+    <div class="price-box">
+      <div class="cart-price">${price}</div>
+       <div class="cart-amt">${price}</div>
+   </div>
+    <input type="number" value="1" class="cart-quantity">
+  </div>
+  <ion-icon name="trash" class="cart-remove"></ion-icon>
+</div>
+  `;
 }
